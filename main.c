@@ -1,12 +1,16 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *s, int c);
+void	*ft_memset(void *s, int c, int n);
+void	*ft_memcpy(void *dest, const void *src, int n);
 int main()
 {
-	char *src = "lorem ipsum dolor sit amet";
-	char *s2 = "ipsum";
-	int 
+	char *dest;
+	char *src = "ABCDEFGH";
+	
+	dest = src + 2;
+	free(dest);
 	return 0;
 }

@@ -1,25 +1,16 @@
+#include <stdlib.h>
+
 void	*ft_calloc(int nmemb, int size)
 {
 	int i;
-	int j;
-	char c;
-	char d;
-	char *p;
-	char *n;
-
-	p = &c;
+	char *mem;
 	
+	mem = malloc(nmemb * size);
 	i = 0;
-	while (i < nmemb)
+	while(i < nmemb)
 	{
-		j = 0;
-		while (j < size)
-		{
-			*p = 0;
-			p++;
-			j++;
-		}
+		mem[i] = 0;
 		i++;
 	}
-	return(n);
+	return(mem);
 }

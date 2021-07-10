@@ -1,41 +1,42 @@
-int	ft_strlen(char *str)
-{
-	int i;
+#include "libft.h"
 
-	i = 0;
-	while (str[i])
-	{
-		i ++;
-	}
-	return(i);
-}
-unsigned int	ft_strlcat(char *dest, char *src, int n)
+char	*ft_strncat(char *dest, const char *src, int n)
 {
 	int i;
 	int j;
-	int srclen;
-	int destlen;
 
 	i = 0;
 	j = 0;
-	destlen = ft_strlen(dest);
-	srclen = ft_strlen(src);
 	while (dest[i])
-	{
 		i++;
-	}
-	while (src[j] && n)
+	while ((j + i) < n && src[j])
 	{
 		dest[i + j] = src[j];
 		j++;
-		n--;
 	}
-	if (n == 0)
+	if((j + i) == n)
 	{
-		dest[j + i - 1] = '\0';
-		return(srclen + destlen);
+		dest[i + j - 1] = '\0';
 	}
 	else
 		dest[i + j] = '\0';
-	return(i + j);
+	return(dest);
+}
+
+unsigned int	ft_strlcat(char *dest, const char *src, int n)
+{
+	int srclen;
+	int destlen;
+	char *src_;
+
+	src_ = (char *)src;
+	destlen = ft_strlen(dest);
+	srclen = ft_strlen(src_);
+	if (n <= destlen)
+		return(srclen + n);
+	else
+	{
+		dest = ft_strncat(dest, src, n);
+	}
+	return(destlen + srclen);
 }
