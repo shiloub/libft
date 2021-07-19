@@ -1,16 +1,15 @@
-#include <string.h>
+#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "libft.h"
 
-void	*ft_memset(void *s, int c, int n);
-void	*ft_memcpy(void *dest, const void *src, int n);
-int main()
+int main ()
 {
-	char *dest;
-	char *src = "ABCDEFGH";
-	
-	dest = src + 2;
-	free(dest);
+	int i;
+	i = 0;
+	char *str = "ach";
+	while(str[i])
+		i = i + 2;
 	return 0;
 }
+
+
