@@ -1,21 +1,17 @@
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *s1_ = (char *)s1;
-	char *s2_ = (char *)s2;
-	int lens1;
-	int lens2;
-	char *strcat;
-	int i;
+	int		lens1;
+	char	*strcat;
+	int		i;
 
-	lens1 = ft_strlen(s1_);
-	lens2 = ft_strlen(s2_);
+	lens1 = ft_strlen((char *)s1);
 	i = 0;
-
-	if(!(strcat = malloc(sizeof(char) * (lens1 + lens2 + 1))))
-		return(0);
+	strcat = malloc(sizeof(char) * (lens1 + ft_strlen((char *)s2) + 1));
+	if (!strcat)
+		return (0);
 	while (s1[i])
 	{
 		strcat[i] = s1[i];
@@ -28,5 +24,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	strcat[i + lens1] = '\0';
-	return(strcat);
+	return (strcat);
 }

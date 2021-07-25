@@ -1,10 +1,9 @@
-#include <stdlib.h>
 #include "libft.h"
 
 int	strchrchar(const char *str, char c)
 {
-	int i;
-	int find;
+	int	i;
+	int	find;
 
 	i = 0;
 	find = 0;
@@ -14,39 +13,59 @@ int	strchrchar(const char *str, char c)
 			find = 1;
 		i++;
 	}
-	return(find);
+	return (find);
 }
+
+int	checkstart(char const *s, char const *set)
+{
+	int	count;
+
+	count = 0;
+	while (strchrchar(set, s[count]))
+		count++;
+	return (count);
+}
+
+int	checkend(char const *s, char const *set)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = ft_strlen((char *)s) - 1;
+	while (strchrchar(set, s[i]))
+	{
+		count++;
+		i--;
+	}
+	return (count);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int i;
-	int len;
-	char *str;
-	int count;
-	int j;
-	
-	i = 0;
-	count = 0;
+	int		i;
+	char	*str;
+	int		strsize;
+	int		j;
+
+	strsize = ft_strlen((char *)s1) - checkstart(s1, set) - checkend(s1, set);
+	if (ft_strlen(s1) > checkstart(s1, set))
+		str = malloc(sizeof(char) * strsize + 1);
+	else
+		str = malloc(sizeof(char));
+	if (!str)
+		return (NULL);
+	i = checkstart(s1, set);
 	j = 0;
-	len = ft_strlen((char *)s1);
-	str = malloc(sizeof(char) * (len + 1));
-	while (i < len)
+	if (ft_strlen(s1) > checkstart(s1, set))
 	{
-		if (!strchrchar(set, s1[i]))
+		while (i < (ft_strlen((char *)s1) - checkend(s1, set)))
 		{
-			while(s1[i])
-			{
-				str[j] = s1[i];
-				if (strchrchar(set, str[j]))
-					count++;
-				else
-					count = 0;
-				i++;
-				j++;
-			}
+			str[j] = s1[i];
+			j++;
+			i++;
 		}
-		i++;
 	}
-	len = ft_strlen(str);
-	str[len - count] = '\0';
-	return(str);
+	str[j] = '\0';
+	return (str);
 }

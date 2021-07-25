@@ -3,18 +3,22 @@
 
 void	ft_putnbr_fd(int nbr, int fd)
 {
-	if(nbr < 0)
+	unsigned int	n;
+
+	if (nbr < 0)
 	{
 		ft_putchar_fd('-', fd);
-		nbr = -nbr;
+		n = -nbr;
 	}
-	if (nbr < 10)
+	else
+		n = nbr;
+	if (n < 10)
 	{
-		ft_putchar_fd(nbr + '0', fd);
+		ft_putchar_fd(n + '0', fd);
 	}
 	else
 	{
-		ft_putnbr_fd(nbr / 10, fd);
-		ft_putchar_fd((nbr % 10) + '0', fd);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + '0', fd);
 	}
 }

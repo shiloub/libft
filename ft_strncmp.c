@@ -2,8 +2,8 @@
 
 int	ft_strsize(const char *str, int n)
 {
-	int i;
-	int size;
+	int	i;
+	int	size;
 
 	size = 0;
 	i = 0;
@@ -15,14 +15,15 @@ int	ft_strsize(const char *str, int n)
 			size -= str[i];
 		i++;
 	}
-	return(size);
+	return (size);
 }
+
 int	ft_strncmp(const char *s1, const char *s2, int n)
 {
-	int s1_size;
-	int s2_size;
-	
+	int	s1_size;
+	int	s2_size;
+
 	s1_size = ft_strsize(s1, n);
 	s2_size = ft_strsize(s2, n);
-	return(s1_size - s2_size);
+	return (s1_size - s2_size);
 }

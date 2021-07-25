@@ -1,8 +1,8 @@
 void	*ft_memcpy(void *dest, const void *src, int n)
 {
-	int i;
-	const char *src_;
-	char *dest_;
+	int			i;
+	const char	*src_;
+	char		*dest_;
 
 	i = 0;
 	src_ = src;
@@ -14,5 +14,5 @@ void	*ft_memcpy(void *dest, const void *src, int n)
 		src_++;
 		i++;
 	}
-	return(dest);
+	return (dest);
 }

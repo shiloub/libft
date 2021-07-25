@@ -1,7 +1,9 @@
-void	ft_bzero(void *s, unsigned int t)
+#include "libft.h"
+
+void	ft_bzero(void *s, int t)
 {
-	int *p;
-	unsigned int i;
+	int	*p;
+	int	i;
 
 	i = 0;
 	while (i < t)

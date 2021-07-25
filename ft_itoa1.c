@@ -2,28 +2,14 @@
 #include <stdlib.h>
 #include "stdlib.h"
 
-unsigned int	checkneg(int nbr, int *neg)
+int	checkneg(int *nbr)
 {
-	if (nbr < 0)
+	if (*nbr < 0)
 	{
-		*neg = 1;
-		return (-nbr);
+		*nbr = - *nbr;
+		return (1);
 	}
-	*neg = 0;
-	return (nbr);
-}
-
-int	intsize(unsigned int nbr)
-{
-	int	count;
-
-	count = 1;
-	while (nbr > 9)
-	{
-		count++;
-		nbr = nbr / 10;
-	}
-	return (count);
+	return (0);
 }
 
 char	*ft_itoa(int value)
@@ -34,9 +20,21 @@ char	*ft_itoa(int value)
 	char			*str;
 	int				neg;
 
-	n = checkneg(value, &neg);
+	neg = 0;
+	if (value < 0)
+	{
+		neg = 1;
+		n = -value;
+	}
+	else
+		n = value;
 	i = n;
-	count = intsize(i);
+	count = 1;
+	while (i > 9)
+	{
+		count++;
+		i = i / 10;
+	}
 	str = malloc(sizeof(char) * (count + neg));
 	if (!str)
 		return (0);

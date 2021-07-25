@@ -1,11 +1,11 @@
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 	{
 		i ++;
 	}
-	return(i);
+	return (i);
 }

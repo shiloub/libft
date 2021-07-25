@@ -3,10 +3,10 @@
 
 char	*ft_strdup(const char *s)
 {
-	int s_len;
-	char *s_;
-	char *s2;
-	int i;
+	int		s_len;
+	char	*s_;
+	char	*s2;
+	int		i;
 
 	i = 0;
 	s_ = (char *)s;
@@ -18,5 +18,5 @@ char	*ft_strdup(const char *s)
 		i++;
 	}
 	s2[i] = '\0';
-	return(s2);
+	return (s2);
 }
